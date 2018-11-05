@@ -1,19 +1,30 @@
 def longest_consec(strarr, k)
 
-  puts "Start Test with #{strarr} and k is #{k} and array length is #{strarr.length}"
-  #consecStrHash = Hash.new ("string","len")
+  # Strip out failures early on
+  n = strarr.length
+  if (n == 0 || k > n || k <= 0)
+    return "" 
+  end 
+  
+  # Build an array of concatonated strings
   consecStrArr = [""]
-  while (strarr.length > 0 && k>0 && k<=strarr.length)
+  while (strarr.length > 0 )
+    # Get the first concatonated string and add it to the new array of strings
      consecStrArr << getStr(strarr,k)
+     # Remove the first string
      strarr.delete_at(0)
    end # while 
+   
+   # Sort the new array backwards on length and return the first element
    return consecStrArr.sort_by{ |x| -x.size}[0]
+   
 end
 
-def getStr( strArr, len)
+# Get the first  'num' string's, concatonate and return them
+def getStr( strArr, num)
   retStr =""
   x = 0
-  while (len <= strArr.length  && x < len)
+  while (num <= strArr.length  && x < num)
     retStr  += strArr[x]
     x += 1
   end
