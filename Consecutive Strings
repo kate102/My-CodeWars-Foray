@@ -1,0 +1,21 @@
+def longest_consec(strarr, k)
+
+  puts "Start Test with #{strarr} and k is #{k} and array length is #{strarr.length}"
+  #consecStrHash = Hash.new ("string","len")
+  consecStrArr = [""]
+  while (strarr.length > 0 && k>0 && k<=strarr.length)
+     consecStrArr << getStr(strarr,k)
+     strarr.delete_at(0)
+   end # while 
+   return consecStrArr.sort_by{ |x| -x.size}[0]
+end
+
+def getStr( strArr, len)
+  retStr =""
+  x = 0
+  while (len <= strArr.length  && x < len)
+    retStr  += strArr[x]
+    x += 1
+  end
+  return retStr
+end
