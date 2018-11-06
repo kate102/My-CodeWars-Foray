@@ -1,0 +1,19 @@
+def reverse_alternate(string)
+  if string.length == 0
+    return string
+  end
+  strArr =[]
+  string.each_line(' ') {|s| strArr.push(s)}
+  x = 0
+  newString = ""
+  while x < strArr.length
+    if ((x % 2) == 0)
+      newString.concat(strArr[x].strip)
+    else
+      newString.concat(strArr[x].reverse.strip)
+    end
+    newString.concat(" ")
+    x += 1
+  end
+  return newString.strip!
+end
