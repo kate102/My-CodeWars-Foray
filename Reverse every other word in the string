@@ -1,9 +1,20 @@
+# This is a published solution, not my work.
+# I wanted to document what I would learn from the more elegant solutions
+
+
+def reverse_alternate(string)
+  string.split(" ").each_with_index.map { |e, index| index.odd? ? e.reverse : e }.join(" ")
+end
+
+# I manually split the string into an array
 def reverse_alternate(string)
   if string.length == 0
     return string
   end
   strArr =[]
   string.each_line(' ') {|s| strArr.push(s)}
+  
+  # I then stepped through the indicies checking for odd and even
   x = 0
   newString = ""
   while x < strArr.length
